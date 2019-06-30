@@ -1,0 +1,9 @@
+{
+	"namespace": "com.kafka.learning.basickafkaprograms.avro",
+  	"name": "Event",
+  	"type": "record",
+  	"fields": [
+  		{"name": "eventId", "type": "long"},
+     	{"name": "eventName", "type": "string", "default": null}
+  	]
+}
