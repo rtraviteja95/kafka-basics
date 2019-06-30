@@ -1,0 +1,25 @@
+
+spring:
+  application:
+    name: RestProxyFeignService   
+  cloud:
+    consul:
+      ribbon:
+        enabled: true   
+ 
+endpoints:
+     health:
+        sensitive: false
+           
+management:
+  security:
+    enabled: false
+  health:
+    consul:
+      enabled: false 
+    db:
+      enabled: false
+    diskspace:
+      enabled: false
+    defaults:
+       enabled: false
