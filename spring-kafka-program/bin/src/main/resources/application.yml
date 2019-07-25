@@ -1,0 +1,12 @@
+spring:
+  cloud:
+    stream:
+      bindings:
+        input-topic:
+          group: input-consumer-1
+          destination: test.topic
+        output-topic:
+          destination: test.output.topic
+      kafka:
+        binder:
+          brokers: localhost:9092

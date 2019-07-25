@@ -12,11 +12,11 @@ public class KBasicConsumer {
 	public static void main(String[] args) {
 
 		KBasicConsumer kBasicConsumer = new KBasicConsumer();
-		kBasicConsumer.startConsumer("test.topic");
+		kBasicConsumer.startConsumer("streams-wordcount-output");
 
 	}
 
-	private Consumer<String, String> consumer = null;
+	private Consumer<String, Long> consumer = null;
 
 	public KBasicConsumer(){
 		
@@ -24,9 +24,9 @@ public class KBasicConsumer {
 
 		props.put("bootstrap.servers", "localhost:9092");
 		props.put("key.deserializer", "org.apache.kafka.common.serialization.StringDeserializer");
-		props.put("value.deserializer", "org.apache.kafka.common.serialization.StringDeserializer");
+		props.put("value.deserializer", "org.apache.kafka.common.serialization.LongDeserializer");
 		props.put("group.id", "test-consumer-2");
-		props.put("auto.offset.reset", "latest");
+		props.put("auto.offset.reset", "earliest");
 		
 		consumer = new KafkaConsumer<>(props);
 
@@ -42,13 +42,11 @@ public class KBasicConsumer {
 		consumer.subscribe(Arrays.asList(topic));
 
 		while (true) {
-			final ConsumerRecords<String, String> consumerRecords =
+			final ConsumerRecords<String, Long> consumerRecords =
 					consumer.poll(1000);
 
 			consumerRecords.forEach(record -> {
-				System.out.printf("Consumer Record:(%d, %s, %d, %d)\n",
-						record.key(), record.value(),
-						record.partition(), record.offset());
+				System.out.println(record.key()+", "+ String.valueOf(record.value()));
 			});
 
 			consumer.commitAsync();

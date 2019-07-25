@@ -1,0 +1,10 @@
+{
+	"namespace": "com.kafka.learning.basickafkaprograms.avro",
+  	"name": "Student",
+  	"type": "record",
+  	"fields": [
+  		{"name": "studentId", "type": "long"},
+     	{"name": "studentName", "type": "string"},
+     	{"name": "studentGender", "type": "string"}
+  	]
+}
