@@ -8,3 +8,4 @@
   * Avro Consumer
 * Basic Kafka Streams Programs
   * Kafka Streams with KTable and Custom Serde
+* Spring Kafka Consumer
