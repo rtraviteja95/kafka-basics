@@ -9,3 +9,4 @@
 * Basic Kafka Streams Programs
   * Kafka Streams with KTable and Custom Serde
 * Spring Kafka Consumer
+* Spring Rest with Kafka Rest Proxy
